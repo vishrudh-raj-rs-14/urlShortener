@@ -113,7 +113,13 @@ const Urls = () => {
           theme="colored"
         />
         <div className="nav-bar">
-          <div className="profile">{user?.name[0]?.toUpperCase()}</div>
+          <button
+            className="profile"
+            onClick={handleLogout}
+            disabled={logoutMutation.isLoading}
+          >
+            {user?.name[0]?.toUpperCase()}
+          </button>
         </div>
         <div className="cointainer">
           <div>
@@ -174,7 +180,13 @@ const Urls = () => {
           theme="colored"
         />
         <div className="nav-bar">
-          <div className="profile">{user?.name[0]?.toUpperCase()}</div>
+          <button
+            className="profile"
+            onClick={handleLogout}
+            disabled={logoutMutation.isLoading}
+          >
+            {user?.name[0]?.toUpperCase()}
+          </button>
         </div>
         <div className="cointainer">
           <div>
