@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { logout } from "../redux/user";
+import FileSaver from "file-saver";
 
 const Urls = () => {
   const [url, setUrl] = useState("");
@@ -297,13 +298,35 @@ const Urls = () => {
               return (
                 <div key={i} className="data">
                   <Link to={ele.oldUrl}>
-                    <div className="org-url">{ele.oldUrl}</div>
+                    <div className="org-url side-line">{ele.oldUrl}</div>
                   </Link>
                   <Link to={`http://localhost:3000/url/${ele.newUrl}`}>
-                    <div className="new-url">
+                    <div className="new-url side-line">
                       localhost:3000/url/{ele.newUrl}
                     </div>
                   </Link>
+                  <div
+                    className="new-url stats-button"
+                    onClick={(e) => {
+                      console.log(JSON.stringify(ele.location));
+                      let blob;
+                      if (ele.location) {
+                        blob = new Blob([JSON.stringify(ele.location)], {
+                          type: "text/plain;charset=utf-8",
+                        });
+                      } else {
+                        blob = new Blob(["No data"], {
+                          type: "text/plain;charset=utf-32",
+                        });
+                      }
+                      FileSaver.saveAs(
+                        blob,
+                        `stats-${Date.now()}-${ele.id}.txt`
+                      );
+                    }}
+                  >
+                    Get Usage Stats
+                  </div>
                 </div>
               );
             })}

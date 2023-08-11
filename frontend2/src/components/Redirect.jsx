@@ -21,7 +21,7 @@ const Redirect = () => {
         alertError("Something went wrong");
         navigate("/");
       });
-  });
+  }, []);
   return (
     <div className="login-c">
       <div className="lds-ripple">

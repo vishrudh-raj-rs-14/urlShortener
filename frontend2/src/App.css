@@ -196,10 +196,15 @@
   color: rgb(15, 151, 209);
 }
 
-.data a:first-child div {
+.side-line {
   border-right: 1px solid white;
 }
 
 .org-url {
   padding: 0px 20px 0px 0px;
+}
+
+.stats-button:hover {
+  cursor: pointer;
+  color: rgb(15, 167, 243);
 }
