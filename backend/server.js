@@ -10,6 +10,7 @@ const cors = require("cors");
 dotenv.config();
 
 connectDb();
+app.set("trust proxy", true);
 app.use(express.json({ limit: "10mb" }));
 app.use(cors({ credentials: true, origin: process.env.FRONT_END_URL }));
 app.use(cookieParser());

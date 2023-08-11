@@ -18,6 +18,7 @@ const urlSchema = mongoose.Schema({
     unique: true,
     required: [true, "New url is compulsory"],
   },
+  location: { type: mongoose.Schema.Types.Mixed, default: {} },
 });
 
 const Url = mongoose.model("Url", urlSchema);

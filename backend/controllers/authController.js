@@ -35,6 +35,7 @@ exports.signup = asyncHandler(async (req, res, next) => {
 });
 
 exports.login = asyncHandler(async (req, res) => {
+  console.log("here");
   const { email, password } = req.body;
   if (!email) {
     res.status(401);
